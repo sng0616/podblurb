@@ -1,8 +1,10 @@
-.sidebar {
-    background-color: green;
-    float: left;
+body {
+    background-color: lightskyblue;
 }
 
-.banner {
-    background-color: blue;
-}
+/*
+.sidebar {
+    background-color: lightseagreen;
+    float: left;
+*/
+

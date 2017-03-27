@@ -1,0 +1,19 @@
+{ % load staticfiles % }
+<!doctype html>
+<html>
+    <head>
+        <title>
+            <!-- Override page tites -->
+            {% block title %}
+                This is PodBlurb
+            {% endblock title %}
+        </title>
+    <link rel="stylesheet" href="{ % static 'css/style.css' % }"/>
+    {% block header %}{% endblock header %}
+    </head>
+    <body>
+        <!-- Override page content -->
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </body>
+</html>
