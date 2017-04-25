@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from collection import views
+#from django.template.loader import add_to_builtins
+#
+#add_to_builtins('django.templatetags.static')
 
 urlpatterns = [
 #        url(

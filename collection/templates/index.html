@@ -1,45 +1,13 @@
-{% load staticfiles %}
-<!doctype html>
-<html>
-    <head>
-        <title>Podblurb - Home</title>
-<!--        <link rel="stylesheet" type="text/css" href="/static/css/style.css">-->
-            <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    </head>
-    <body>
-        <div class="banner">
-            <h1>PodBlurb</h1>
-        </div>
-        <div class="sidebar">
-            <form>
-            <h2>Menu</h2>
-            <p>
-            <label>Sort by: 
-                <select name="pd_sorting">
-                    <option value="most_popular">Most Popular</option>
-                    <option value="most_recent">Most Recently Updated</option>
-                    <option value="a_z">A-Z</option>
-                    <option value="z_a">Z-A</option>
-                </select>
-            </label>
-            </p>
-            <p>
-            <label>Format: 
-                <input type="checkbox" name="pd_format" value="scripted" />Scripted
-                <input type="checkbox" name="pd_format" value="talk" />Talk
-            </label>
-            </p>
-            <p>
-            <label>Mature Content: 
-                <input type="radio" name="pd_mature" value="on" />On
-                <input type="radio" name="pd_mature" value="off" />Off
-            </label>
-            </p>
-            <p>
-                Recommend a podcast!
-            </p>
-            </form>
-        </div>
-        <p>My question: Why aren't more podcasts covered like films and TV shows?</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Podblurb - Home
+{% endblock title %}
+
+{% block header %}{% endblock header %}
+
+{% block menu_bar%}{% endblock menu_bar %}
+
+{% block content %}
+    <p>My question: Why aren't more podcasts covered like films and TV shows?</p>
+{% endblock content %}
