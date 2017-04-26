@@ -16,13 +16,9 @@
     </head>
     <body>
         <!-- Override page content -->
-        {% block menu %}
-        <div class="banner">
-            <h1>PodBlurb</h1>
-        </div>
         <div class="sidebar">
             <form>
-            <h2>Menu</h2>
+            <h2>Find Podcasts!</h2>
             <p>
             <label>Sort by: 
                 <select name="pd_sorting">
@@ -45,13 +41,16 @@
                 <input type="radio" name="pd_mature" value="off" />Off
             </label>
             </p>
-            <p>
-                Recommend a podcast!
-            </p>
             </form>
         </div>
-        {% endblock menu %}
+        <div class="banner">
+            <h1>PodBlurb</h1>
+        </div>
         {% block content %}{% endblock content %}
-        {% block footer %}{% endblock footer %}
+        <div class="footer">
+            <p>
+                Recommend a podcast at thisname@podblurb.com!
+            </p>
+        </div>
     </body>
 </html>
