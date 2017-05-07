@@ -2,15 +2,31 @@ body {
     background-color: lightskyblue;
 }
 
-h1, h2 {
+h1, h2, a {
     text-align: center;
     font-family: Impact, fantasy;
-/*    font-variant: small-caps;*/
     font-stretch: extra-condensed;
 }
 
 p {
     font-family: Gill Sans, Trebuchet, sans-serif;
+}
+
+nav {
+    text-align: center;
+/*    word-spacing: 8em;*/
+
+}
+
+li {
+    display: inline;
+    padding: 5em;
+}
+
+footer {
+    width: 80%;
+    position: fixed;
+    bottom: 0;
 }
 
 .sidebar {
@@ -20,10 +36,19 @@ p {
     margin: 2%;
 }
 
-.footer {
-    text-align: center;
-    position: absolute;
+.foot {
+    text-align: right;
+    font-family: Gill Sans, Trebuchet, sans-serif;
+
+/*    bottom: 100%;*/
+/*    position: relative;*/
+/*    clear: both;*/
+/*
+    position: fixed;
+    float: right;
+
+    bottom: 0;
     right: 0;
     left: 0;
-    bottom: 0;
+*/
 }

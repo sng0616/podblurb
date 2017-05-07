@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import TemplateView as tv
 from collection import views
 #from django.template.loader import add_to_builtins
 #
@@ -27,5 +28,7 @@ urlpatterns = [
 #        name='home',
 #    ),
     url(r'^$', views.index, name='home'),
+    url(r'^about$', tv.as_view(template_name = 'about.html'), name='about'),
+    url(r'^contact$', tv.as_view(template_name = 'contact.html'), name='contact'),
     url(r'^admin/', admin.site.urls)
 ]
