@@ -13,4 +13,9 @@
     <p>My question: Why aren't more podcasts covered like films and TV shows?</p>
     <p>This is my favorite podcast this week: {{pc|title}}</p>
     <p>I've listened to {{num|apnumber}} podcast episode{{num|pluralize}} this week.</p>
+    
+    {% for show in podcasts %}
+        <h2>{{show.name}}</h2>
+        <p>{{show.description}}</p>
+    {% endfor %}
 {% endblock content %}
