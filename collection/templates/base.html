@@ -9,13 +9,9 @@
                 This is PodBlurb
             {% endblock title %}
         </title>
-
     {% block header %}
         The most excellent blog in the world!
     {% endblock header %}
-    </head>
-    <body>
-        <!-- Override page content -->
         <div class="sidebar">
             <form>
             <h2>Find Podcasts!</h2>
@@ -53,10 +49,14 @@
                 </ul>
             </nav>
         </div>
+    </head>
+    <body>
+        <!-- Override page content -->
+        
         {% block content %}{% endblock content %}
         <div class="foot">
             <footer>
-                Recommend a podcast at thisname@podblurb.com!
+                Recommend a podcast at madeupemail@podblurb.com!
             </footer>
         </div>
     </body>

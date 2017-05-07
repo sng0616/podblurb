@@ -1,5 +1,10 @@
 body {
     background-color: lightskyblue;
+    width: 80%;
+    height: 100%;
+/*    float: right;*/
+    position: absolute;
+    right: -5%;
 }
 
 h1, h2, a {
@@ -10,45 +15,47 @@ h1, h2, a {
 
 p {
     font-family: Gill Sans, Trebuchet, sans-serif;
+/*    position: relative;*/
 }
 
 nav {
     text-align: center;
 /*    word-spacing: 8em;*/
-
+    padding-bottom: 1%;
 }
 
 li {
     display: inline;
-    padding: 5em;
+    padding: 5%;
 }
 
 footer {
     width: 80%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    right: 0;
+    left: 15%;
+/*
+    margin-right: 0;
+    margin-left: 0;
+*/
 }
 
 .sidebar {
     background-color: lightseagreen;
-    float: left;
+    position: fixed;
+/*    float: left;*/
+    left: 0;
+    min-height: 100%;
     width: 20%;
     margin: 2%;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 1%;
+    clear: both;
 }
 
 .foot {
-    text-align: right;
+    text-align: center;
     font-family: Gill Sans, Trebuchet, sans-serif;
-
-/*    bottom: 100%;*/
-/*    position: relative;*/
-/*    clear: both;*/
-/*
-    position: fixed;
-    float: right;
-
-    bottom: 0;
-    right: 0;
-    left: 0;
-*/
 }

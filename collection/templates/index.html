@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block title %}
     Podblurb - Home
@@ -10,4 +11,6 @@
 
 {% block content %}
     <p>My question: Why aren't more podcasts covered like films and TV shows?</p>
+    <p>This is my favorite podcast this week: {{pc|title}}</p>
+    <p>I've listened to {{num|apnumber}} podcast episode{{num|pluralize}} this week.</p>
 {% endblock content %}
