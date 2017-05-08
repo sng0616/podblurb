@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^$', views.index, name='home'),
     url(r'^about$', tv.as_view(template_name = 'about.html'), name='about'),
     url(r'^contact$', tv.as_view(template_name = 'contact.html'), name='contact'),
+    url(r'^shows/(?P<slug>[-\w]+)/$', views.show_detail, name='show'),
     url(r'^admin/', admin.site.urls)
 ]

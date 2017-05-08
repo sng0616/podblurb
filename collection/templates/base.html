@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
         <title>
             {% block title %}
-                This is PodBlurb
+                PodBlurb
             {% endblock title %}
         </title>
     {% block header %}
@@ -33,8 +33,8 @@
             </p>
             <p>
             <label>Status: 
-                <input type="checkbox" name="pd_status" value="done" />Done
                 <input type="checkbox" name="pd_status" value="running" />Running
+                <input type="checkbox" name="pd_status" value="complete" />Complete
                 <input type="checkbox" name="pd_status" value="hiatus" />Hiatus
             </label>
             </p>
@@ -57,9 +57,7 @@
             </nav>
         </div>
     </head>
-    <body>
-        <!-- Override page content -->
-        
+    <body>        
         {% block content %}{% endblock content %}
         <div class="foot">
             <footer>

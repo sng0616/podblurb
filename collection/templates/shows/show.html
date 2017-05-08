@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block title %}
-    {{block.super}} - About Us
+    {{block.super}} - {{sshow.name|title}}
 {% endblock title %}
 
 {% block header %}{% endblock header %}
@@ -9,6 +10,6 @@
 {% block menu_bar%}{% endblock menu_bar %}
 
 {% block content %}
-    <h2>About</h2>
-    <p>This is the About page. I should probably say something about myself, but I'll do that later.</p>
+    <h1>{{sshow.name|title}}</h1>
+    <p>{{sshow.description}}</p>
 {% endblock content %}

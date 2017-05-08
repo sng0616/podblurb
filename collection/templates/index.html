@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block title %}
-    Podblurb - Home
+    {{block.super}} - Home
 {% endblock title %}
 
 {% block header %}{% endblock header %}
@@ -10,12 +10,14 @@
 {% block menu_bar%}{% endblock menu_bar %}
 
 {% block content %}
-    <p>My question: Why aren't more podcasts covered like films and TV shows?</p>
-    <p>This is my favorite podcast this week: {{pc|title}}</p>
+<!--    <p>My question: Why aren't more podcasts covered like films and TV shows?</p>-->
+
+    <p>The top podcast this week is {{pdc|title}}.</p>
     <p>I've listened to {{num|apnumber}} podcast episode{{num|pluralize}} this week.</p>
     
-    {% for show in podcasts %}
-        <h2>{{show.name}}</h2>
-        <p>{{show.description}}</p>
+    {% for s in podcasts %}
+        <h2><a href="{% url 'show' slug=s.slug %}">{{s.name}}</a></h2>
+        <p>{{s.description}}</p>
     {% endfor %}
+
 {% endblock content %}
