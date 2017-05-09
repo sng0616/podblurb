@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from collection.forms import EditForm
 from collection.models import podcast_show
 
 # Create your views here.
@@ -21,4 +22,24 @@ def show_detail(request, slug):
     select_show = podcast_show.objects.get(slug=slug)
     # Pass object to template
     return render(request, 'shows/show.html', {'sshow':select_show})
+
+def show_edit(request, slug):
+    select_show = podcast_show.objects.get(slug=slug)
+    form_class = EditForm
     
+    # if we're coming to this view from a submitted form
+    if request.method == 'POST':
+        # Get data from submitted form 
+        form = form_class(data = request.POST, instance = select_show)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('show', slug=select_show.slug)
+        
+    else:
+        form = form_class(instance = select_show)
+    return render(request, 'shows/edit.html', {
+        'form':form,
+        'sshow':select_show
+    })
+        

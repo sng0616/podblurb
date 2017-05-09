@@ -10,6 +10,7 @@
 {% block menu_bar%}{% endblock menu_bar %}
 
 {% block content %}
-    <h1>{{sshow.name|title}}</h1>
+    <h2>{{sshow.name|title}}</h2>
     <p>{{sshow.description}}</p>
+    <p><a href="{%url 'edit' slug=sshow.slug%}">Edit Post</a></p>
 {% endblock content %}

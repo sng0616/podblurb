@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{block.super}} - Login
+{% endblock title %}
+
+{% block header %}{% endblock header %}
+
+{% block menu_bar%}{% endblock menu_bar %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+{% endblock content %}

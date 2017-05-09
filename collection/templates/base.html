@@ -13,7 +13,7 @@
         The most excellent blog in the world!
     {% endblock header %}
         <div class="sidebar">
-            <form>
+<!--            <form>-->
             <h2>Find Podcasts!</h2>
             <p>
             <label>Sort by: 
@@ -44,7 +44,7 @@
                 <input type="radio" name="pd_mature" value="off" />Off
             </label>
             </p>
-            </form>
+<!--            </form>-->
         </div>
         <div class="banner">
             <h1>PodBlurb</h1>
@@ -53,6 +53,12 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href={% url 'auth_logout' %}>Logout</a></li >
+                    {% else %}
+                    <li><a href={% url 'auth_login' %}>Sign In</a></li>
+                    <li><a href={% url 'registration_register' %}>Register</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

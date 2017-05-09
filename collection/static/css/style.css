@@ -9,26 +9,26 @@ body {
     padding-bottom: 2%;
 }
 
-h1, h2, a {
+h1, h2, h3, a {
     text-align: center;
     font-family: Impact, fantasy;
     font-stretch: extra-condensed;
 }
 
-p {
+p, form input[type=submit], span .helptext{
     font-family: Gill Sans, Trebuchet, sans-serif;
     position: relative;
-    padding-left: 10%;
-/*    text-align: left;*/
+    margin-left: 10%;
 }
 
 nav {
     text-align: center;
-/*    word-spacing: 8em;*/
+    display: inline;
+    padding: 5%;
     padding-bottom: 1%;
 }
 
-li {
+nav li {
     display: inline;
     padding: 5%;
 }
@@ -42,11 +42,6 @@ footer {
     height: 2%;
     text-align: center;
     left: 10%;
-/*    background-color: darkmagenta;*/
-/*
-    margin-right: 0;
-    margin-left: 0;
-*/
 }
 
 .sidebar {
@@ -54,7 +49,7 @@ footer {
     position: fixed;
 /*    float: left;*/
     left: 0;
-    min-height: 100%;
+    min-height: 102%;
     width: 20%;
     margin: 2%;
     margin-left: 0;
@@ -62,7 +57,6 @@ footer {
     padding: 1%;
     clear: both;
 }
-
 
 .foot {
     font-family: Gill Sans, Trebuchet, sans-serif;

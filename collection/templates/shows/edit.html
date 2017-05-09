@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!--{% load humanize %}-->
+
+{% block title %}
+    {{block.super}} - Edit
+{% endblock title %}
+
+{% block header %}{% endblock header %}
+
+{% block menu_bar%}{% endblock menu_bar %}
+
+{% block content %}
+    <h2>Edit Post</h2>
+    <h3>{{sshow.name|title}}</h3>
+    <form role="form" action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p><button type="submit">Submit</button></p>
+    </form>
+{% endblock content %}
