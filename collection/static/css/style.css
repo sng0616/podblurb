@@ -13,9 +13,12 @@ h1, h2, h3, a {
     text-align: center;
     font-family: Impact, fantasy;
     font-stretch: extra-condensed;
+    letter-spacing: 5em;
 }
 
-p, form input[type=submit], span .helptext{
+p, form input[type=submit]
+/*, span .helptext*/
+{
     font-family: Gill Sans, Trebuchet, sans-serif;
     position: relative;
     margin-left: 10%;
@@ -42,6 +45,10 @@ footer {
     height: 2%;
     text-align: center;
     left: 10%;
+}
+
+span .helptext {
+    padding-left: 40%;
 }
 
 .sidebar {
