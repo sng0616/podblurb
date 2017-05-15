@@ -24,7 +24,6 @@ SECRET_KEY = 'x5)260q%k*^c2%=&*0xnoc76@znlvcc1ndzpd^5n(lrlkh96i0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'registration',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,5 @@ EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
 
 LOGIN_REDIRECT_URL = 'home'
+
+TAGGIT_CASE_INSENSITIVE = True
