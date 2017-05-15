@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
-from collection.forms import EditForm
-from collection.models import podcast_show
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.db.models import Q
+
+from collection.forms import EditForm
+from collection.models import podcast_show
+
+import operator
 
 # Create your views here.
 #def index(request):
@@ -66,4 +70,21 @@ def create_post(request):
     else:
         form = form_class()
     return render(request, 'shows/create_post.html', {'form' : form})
-        
+
+#class blog_search_view(ListView):
+#    
+#    paginate_by = 10
+#    
+#    def get_queryset(self):
+#        result = super(blog_search_view, self).get_queryset()
+#        query = self.request.GET.get('query_part')
+#        
+#        if query:
+#            query_list = query.split()
+#            result = result.filter(
+#                reduce(operator.and_,
+#                      (Q(name__icontains=q) for q in query_list)) | 
+#                reduce(operator.and_,
+#                      (Q(description__icontains=q) for q in query_list))
+#                )
+#        return result

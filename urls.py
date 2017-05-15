@@ -47,6 +47,8 @@ urlpatterns = [
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name = 'registration_register'),
     url(r'^accounts/create_post/$', views.create_post, name='registration_create_post'),
     
+#    url(r'^shows/(?P<name>[\d+])/$', blog_search_view.as_view(), name='search_list'),
+    
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', admin.site.urls)
 ]

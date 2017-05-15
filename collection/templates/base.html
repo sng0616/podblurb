@@ -16,6 +16,15 @@
 <!--            <form>-->
             <h2>Find Podcasts!</h2>
             <p>
+                <form id="search_posts">
+<!--                <form id="search_posts" action="{% url 'blog_search_view' %}" method="get" accept-charset="utf-8">-->
+                    <button class="search_button" type="submit">
+<!--                        <i class="fa fa-search"></i>-->
+                    </button>
+                    <input class="search_field" id="search_box" name="query_part" type="text" placeholder="Submit">
+                </form>
+            </p>
+            <p>
             <label>Sort by: 
                 <select name="pd_sorting">
                     <option value="most_popular">Most Popular</option>
