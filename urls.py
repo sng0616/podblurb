@@ -26,31 +26,26 @@ from collection import views
 from collection.backends import MyRegistrationView
 
 
+
 #from django.template.loader import add_to_builtins
 #
 #add_to_builtins('django.templatetags.static')
 
 urlpatterns = [
-#        url(
-#        regex=r'^$', 
-#        view=views.index,
-#        name='home',
-#    ),
     url(r'^$', views.index, name='home'),
     url(r'^about$', tv.as_view(template_name = 'about.html'), name='about'),
     url(r'^contact$', tv.as_view(template_name = 'contact.html'), name='contact'),
+    
     url(r'^shows/(?P<slug>[-\w]+)/$', views.show_detail, name='show'),
     url(r'^shows/(?P<slug>[-\w]+)/edit/$', views.show_edit, name='edit'),
     
-#    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/password/reset/$', password_reset, {'template_name':'registration/password_reset_form.html'}, name='password_reset'),
     url(r'^accounts/password/reset/done/$', password_reset_done, {'template_name':'registration/password_reset_done.html'}, name='password_reset_done'),
     url(r'^accounts/password/reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', password_reset_confirm, {'template_name':'registration/password_reset_confirm.html'}, name='password_reset_confirm'),
     url(r'^accounts/password/reset/done$', password_reset_complete, {'template_name':'registration/password_reset_complete.html'}, name='password_reset_complete'),
     
-    url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
-    url(r'^accounts/create_post/$', views.create_post, 
-    name='registration_create_post'),
+    url(r'^accounts/register/$', MyRegistrationView.as_view(), name = 'registration_register'),
+    url(r'^accounts/create_post/$', views.create_post, name='registration_create_post'),
     
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', admin.site.urls)

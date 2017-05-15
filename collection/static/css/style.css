@@ -13,7 +13,7 @@ h1, h2, h3, a {
     text-align: center;
     font-family: Impact, fantasy;
     font-stretch: extra-condensed;
-    letter-spacing: 5em;
+    letter-spacing: 1px;
 }
 
 p, form input[type=submit]

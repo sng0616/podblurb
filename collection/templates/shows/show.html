@@ -12,5 +12,7 @@
 {% block content %}
     <h2>{{sshow.name|title}}</h2>
     <p>{{sshow.description}}</p>
-    <p><a href="{%url 'edit' slug=sshow.slug%}">Edit Post</a></p>
+    {% if user == sshow.user %}
+        <p><a href="{%url 'edit' slug=sshow.slug%}">Edit Post</a></p>
+    {% endif %}
 {% endblock content %}
