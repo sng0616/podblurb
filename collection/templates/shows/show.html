@@ -11,7 +11,15 @@
 
 {% block content %}
     <h2>{{sshow.name|title}}</h2>
+    <p>By {{sshow.user}}</p>
     <p>{{sshow.description}}</p>
+
+    <p>Tags: 
+        {% for tag in sshow.tags.all %}
+            {{ tag.name }}
+        {% endfor %}
+    </p>
+
     {% if user == sshow.user %}
         <p><a href="{%url 'edit' slug=sshow.slug%}">Edit Post</a></p>
     {% endif %}

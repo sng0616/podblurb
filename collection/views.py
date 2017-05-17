@@ -46,6 +46,7 @@ def show_edit(request, slug):
         
         if form.is_valid():
             form.save()
+            form.save_m2m()
             return redirect('show', slug=select_show.slug)
         
     else:
@@ -65,6 +66,7 @@ def create_post(request):
             post.user = request.user
             post.slug = slugify(post.name)
             post.save()
+            post.save_m2m()
             
             return redirect('show',slug=post.slug)
     else:
