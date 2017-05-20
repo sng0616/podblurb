@@ -15,12 +15,10 @@
         <div class="sidebar">
 <!--            <form>-->
             <h2>Find Podcasts!</h2>
-            <p>
-<!--                <form id="search_posts">-->
-                <input class="search_field" id="search_box" name="query_part" type="text" placeholder="Search" /> 
-<!--                <input type="submit" value="Submit" />-->
-<!--                </form>-->
-            </p>
+                <form id="search_posts" action="" method="get" accept-charset="utf-8">
+                    <p><input class="search_field" id="search_box" name="query" type="text" placeholder="Search" value="{{ request.GET.query }}" />
+                    <input type="submit" value="Submit" /></p>
+                </form>
             <p>
             <label>Sort by: 
                 <select name="pd_sorting">

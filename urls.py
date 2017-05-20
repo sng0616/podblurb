@@ -38,6 +38,8 @@ urlpatterns = [
     
     url(r'^shows/(?P<slug>[-\w]+)/$', views.show_detail, name='show'),
     url(r'^shows/(?P<slug>[-\w]+)/edit/$', views.show_edit, name='edit'),
+   
+#    url(r'^search/(?P<slug>[-\w]+)/$', views.blog_search_view, name='search'),
     
     url(r'^accounts/password/reset/$', password_reset, {'template_name':'registration/password_reset_form.html'}, name='password_reset'),
     url(r'^accounts/password/reset/done/$', password_reset_done, {'template_name':'registration/password_reset_done.html'}, name='password_reset_done'),
@@ -47,7 +49,7 @@ urlpatterns = [
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name = 'registration_register'),
     url(r'^accounts/create_post/$', views.create_post, name='registration_create_post'),
     
-#    url(r'^shows/(?P<name>[\d+])/$', blog_search_view.as_view(), name='search_list'),
+    url(r'^shows/(?P<name>[\d+])/$', blog_search_view.as_view(), name='search_list'),
     
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', admin.site.urls)

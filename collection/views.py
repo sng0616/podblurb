@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 from django.http import Http404
 from django.db.models import Q
 
@@ -18,11 +19,28 @@ def index(request):
     number = 7
 #    shows = podcast_show.objects.filter(name__contains = 'popular').order_by('name')
     shows = podcast_show.objects.all().order_by('id').reverse()
-    return render(request, 'index.html', {
-        'pdc':podcast, 
-        'num':number,
-        'podcasts':shows
-    })
+    
+    query_name = request.GET.get("query")
+    
+    if query_name:
+        query_list = query_name.split()
+        result = shows.filter(
+            reduce(operator.and_, (Q(name__icontains=q) for q in query_list)) |
+            reduce(operator.and_, (Q(description__icontains=q) for q in query_list))
+#            reduce(operator.and_, (Q(tags__icontains=q) for x in tags for q in query_list))
+        )
+        return render(request, 'index.html', {
+            'q':query_name,
+            'post_list':result,
+            'pdc':podcast, 
+            'num':number, 
+        }) 
+    else:
+        return render(request, 'index.html', {
+            'pdc':podcast, 
+            'num':number,
+            'podcasts':shows
+        })
 
 def show_detail(request, slug):
     # Get object
@@ -72,21 +90,3 @@ def create_post(request):
     else:
         form = form_class()
     return render(request, 'shows/create_post.html', {'form' : form})
-
-#class blog_search_view(ListView):
-#    
-#    paginate_by = 10
-#    
-#    def get_queryset(self):
-#        result = super(blog_search_view, self).get_queryset()
-#        query = self.request.GET.get('query_part')
-#        
-#        if query:
-#            query_list = query.split()
-#            result = result.filter(
-#                reduce(operator.and_,
-#                      (Q(name__icontains=q) for q in query_list)) | 
-#                reduce(operator.and_,
-#                      (Q(description__icontains=q) for q in query_list))
-#                )
-#        return result

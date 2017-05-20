@@ -12,18 +12,14 @@
 {% block content %}
 <!--    <p>My question: Why aren't more podcasts covered like films and TV shows?</p>-->
 
+<!--
     <p>The top podcast this week is {{pdc|title}}.</p>
     <p>I've listened to {{num|apnumber}} podcast episode{{num|pluralize}} this week.</p>
+-->
     
-    {% if q %} 
-        {% for s in post_list %}
-            <h2><a href="{% url 'show' slug=s.slug %}">{{s.name}}</a></h2>
-            <p>{{s.description}}</p>
-        {% endfor %}
-    {% else %}
-        {% for s in podcasts %}
-            <h2><a href="{% url 'show' slug=s.slug %}">{{s.name}}</a></h2>
-            <p>{{s.description}}</p>
-        {% endfor %}
-    {% endif %}
+    {% for s in post_list %}
+        <h2><a href="{% url 'search_list' slug=s.slug %}">{{s.name}}</a></h2>
+        <p>{{s.description}}</p>
+    {% endfor %}
+
 {% endblock content %}
