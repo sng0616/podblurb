@@ -6,7 +6,7 @@ from django.http import Http404
 from django.db.models import Q
 
 from collection.forms import EditForm
-from collection.models import podcast_post
+from collection.models import podcast_post, podcast_show
 
 import operator
 

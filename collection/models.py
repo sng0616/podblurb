@@ -16,6 +16,7 @@ class podcast_show(models.Model):
         ('Talk', 'Talk')
     )
     show_format = models.CharField(max_length=20, choices = show_format_choices)
+    show_tags = TaggableManager(verbose_name = "Tags", blank = True)
 
 class podcast_post(models.Model):
     # Try to get show choices from API

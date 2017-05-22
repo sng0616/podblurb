@@ -7,7 +7,7 @@ class PdbPost(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('post_title',)}
     
     def get_queryset(self, request):
-        return super(PdbAdmin, self).get_queryset(request).prefetch_related('tags')
+        return super(PdbPost, self).get_queryset(request).prefetch_related('tags')
 
     def tag_list(self, podcast_post):
         return u", ".join(o.post_title for o in podcast_post.tags.all())
@@ -18,10 +18,10 @@ class PdbShow(admin.ModelAdmin):
     prepopulated_fields = {'show_slug': ('show_name',)}
 
     def get_queryset(self, request):
-        return super(PdbAdmin, self).get_queryset(request).prefetch_related('tags')
+        return super(PdbShow, self).get_queryset(request).prefetch_related('show_tags')
 
-    def tag_list(self, podcast_post):
-        return u", ".join(o.post_title for o in podcast_post.tags.all())
+    def show_tags_list(self, podcast_post):
+        return u", ".join(o.show_name for o in podcast_show.show_tags.all())
     
 # Register your models here.
 admin.site.register(podcast_post, PdbPost)
