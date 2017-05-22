@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='podcast_show',
+            model_name='podcast_post',
             name='user',
         ),
     ]

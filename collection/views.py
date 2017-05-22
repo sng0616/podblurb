@@ -6,7 +6,7 @@ from django.http import Http404
 from django.db.models import Q
 
 from collection.forms import EditForm
-from collection.models import podcast_show
+from collection.models import podcast_post
 
 import operator
 
@@ -17,16 +17,16 @@ import operator
 def index(request):
     podcast = 'my favorite read'
     number = 7
-#    shows = podcast_show.objects.filter(name__contains = 'popular').order_by('name')
-    shows = podcast_show.objects.all().order_by('id').reverse()
+#    shows = podcast_post.objects.filter(post_title__contains = 'popular').order_by('post_title')
+    shows = podcast_post.objects.all().order_by('id').reverse()
     
     query_name = request.GET.get("query")
     
     if query_name:
         query_list = query_name.split()
         result = shows.filter(
-            reduce(operator.and_, (Q(name__icontains=q) for q in query_list)) |
-            reduce(operator.and_, (Q(description__icontains=q) for q in query_list))
+            reduce(operator.and_, (Q(post_title__icontains=q) for q in query_list)) |
+            reduce(operator.and_, (Q(post_content__icontains=q) for q in query_list))
 #            reduce(operator.and_, (Q(tags__icontains=q) for x in tags for q in query_list))
         )
         return render(request, 'index.html', {
@@ -44,13 +44,13 @@ def index(request):
 
 def show_detail(request, slug):
     # Get object
-    select_show = podcast_show.objects.get(slug=slug)
+    select_show = podcast_post.objects.get(slug=slug)
     # Pass object to template
     return render(request, 'shows/show.html', {'sshow':select_show})
 
 @login_required
 def show_edit(request, slug):
-    select_show = podcast_show.objects.get(slug=slug)
+    select_show = podcast_post.objects.get(slug=slug)
     
     if select_show.user != request.user:
         raise Http404
@@ -82,7 +82,7 @@ def create_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.user = request.user
-            post.slug = slugify(post.name)
+            post.slug = slugify(post.post_title)
             post.save()
             post.save_m2m()
             

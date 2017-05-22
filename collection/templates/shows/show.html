@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block title %}
-    {{block.super}} - {{sshow.name|title}}
+    {{block.super}} - {{sshow.post_title|title}}
 {% endblock title %}
 
 {% block header %}{% endblock header %}
@@ -10,9 +10,9 @@
 {% block menu_bar%}{% endblock menu_bar %}
 
 {% block content %}
-    <h2>{{sshow.name|title}}</h2>
+    <h2>{{sshow.post_title|title}}</h2>
     <p>By {{sshow.user}}</p>
-    <p>{{sshow.description}}</p>
+    <p>{{sshow.post_content}}</p>
 
     <p>Tags: 
         {% for tag in sshow.tags.all %}
