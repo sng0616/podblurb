@@ -16,7 +16,10 @@ class podcast_show(models.Model):
         ('Talk', 'Talk')
     )
     show_format = models.CharField(max_length=20, choices = show_format_choices)
-    show_tags = TaggableManager(verbose_name = "Tags", blank = True)
+    show_tags = TaggableManager(verbose_name = "Show Tags", blank = True)
+    
+    def __str__(self):
+        return self.show_name
 
 class podcast_post(models.Model):
     # Try to get show choices from API
@@ -25,5 +28,8 @@ class podcast_post(models.Model):
     post_content = models.TextField()
     slug = models.SlugField(unique=True)
     user = models.ForeignKey(User, blank=True, null=True)
-    tags = TaggableManager(verbose_name = "Tags", blank = True)
-    last_modified = models.DateField(auto_now=False,auto_now_add=False)
+    tags = TaggableManager(verbose_name = "Post Tags", blank = True)
+    last_modified = models.DateTimeField(auto_now=True)
+    
+#    def __str__(self):
+#        return self.last_modified

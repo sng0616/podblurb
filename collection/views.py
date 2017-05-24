@@ -39,7 +39,7 @@ def index(request):
         return render(request, 'index.html', {
             'pdc':podcast, 
             'num':number,
-            'podcasts':shows
+            'podcasts':shows,
         })
 
 def show_detail(request, slug):
@@ -74,6 +74,7 @@ def show_edit(request, slug):
         'sshow':select_show
     })
 
+@login_required
 def create_post(request):
     form_class = EditForm
 
@@ -84,9 +85,28 @@ def create_post(request):
             post.user = request.user
             post.slug = slugify(post.post_title)
             post.save()
-            post.save_m2m()
+#            post.save_m2m()
             
             return redirect('show',slug=post.slug)
     else:
         form = form_class()
     return render(request, 'shows/create_post.html', {'form' : form})
+
+@login_required
+def create_new_post(request):
+    form_class = EditForm
+
+    if request.method == 'POST':
+        form = form_class(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.slug = slugify(post.post_title)
+            post.save()
+#            post.save_m2m()
+            
+            return redirect('show',slug=post.slug)
+    else:
+        form = form_class()
+    return render(request, 'shows/create_post_raw.html', {'form' : form})
+    

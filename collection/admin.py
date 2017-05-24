@@ -10,7 +10,7 @@ class PdbPost(admin.ModelAdmin):
         return super(PdbPost, self).get_queryset(request).prefetch_related('tags')
 
     def tag_list(self, podcast_post):
-        return u", ".join(o.post_title for o in podcast_post.tags.all())
+        return u", ".join(str(o) for o in podcast_post.tags.all())
     
 class PdbShow(admin.ModelAdmin):
     model = podcast_show
@@ -20,8 +20,8 @@ class PdbShow(admin.ModelAdmin):
     def get_queryset(self, request):
         return super(PdbShow, self).get_queryset(request).prefetch_related('show_tags')
 
-    def show_tags_list(self, podcast_post):
-        return u", ".join(o.show_name for o in podcast_show.show_tags.all())
+    def show_tags_list(self, podcast_show):
+        return u", ".join(str(o) for o in podcast_show.show_tags.all())
     
 # Register your models here.
 admin.site.register(podcast_post, PdbPost)
