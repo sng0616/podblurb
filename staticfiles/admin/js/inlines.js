@@ -30,8 +30,8 @@
             if (el.id) {
                 el.id = el.id.replace(id_regex, replacement);
             }
-            if (el.name) {
-                el.name = el.name.replace(id_regex, replacement);
+            if (el.post_title) {
+                el.post_title = el.post_title.replace(id_regex, replacement);
             }
         };
         var totalForms = $("#id_" + options.prefix + "-TOTAL_FORMS").prop("autocomplete", "off");
@@ -106,7 +106,7 @@
                     if ((maxForms.val() === '') || (maxForms.val() - forms.length) > 0) {
                         addButton.parent().show();
                     }
-                    // Also, update names and ids for all remaining form controls
+                    // Also, update post_titles and ids for all remaining form controls
                     // so they remain in sequence:
                     var i, formCount;
                     var updateElementCallback = function() {
@@ -163,12 +163,12 @@
             // instantiate a new SelectFilter instance for it.
             if (typeof SelectFilter !== 'undefined') {
                 $('.selectfilter').each(function(index, value) {
-                    var namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length - 1], false);
+                    var post_titlearr = value.post_title.split('-');
+                    SelectFilter.init(value.id, post_titlearr[post_titlearr.length - 1], false);
                 });
                 $('.selectfilterstacked').each(function(index, value) {
-                    var namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length - 1], true);
+                    var post_titlearr = value.post_title.split('-');
+                    SelectFilter.init(value.id, post_titlearr[post_titlearr.length - 1], true);
                 });
             }
         };
@@ -179,8 +179,8 @@
                     input = field.find('input, select, textarea'),
                     dependency_list = input.data('dependency_list') || [],
                     dependencies = [];
-                $.each(dependency_list, function(i, field_name) {
-                    dependencies.push('#' + row.find('.field-' + field_name).find('input, select, textarea').attr('id'));
+                $.each(dependency_list, function(i, field_post_title) {
+                    dependencies.push('#' + row.find('.field-' + field_post_title).find('input, select, textarea').attr('id'));
                 });
                 if (dependencies.length) {
                     input.prepopulate(dependencies, input.attr('maxlength'));
@@ -229,12 +229,12 @@
             // If any SelectFilter widgets were added, instantiate a new instance.
             if (typeof SelectFilter !== "undefined") {
                 $(".selectfilter").each(function(index, value) {
-                    var namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length - 1], false);
+                    var post_titlearr = value.post_title.split('-');
+                    SelectFilter.init(value.id, post_titlearr[post_titlearr.length - 1], false);
                 });
                 $(".selectfilterstacked").each(function(index, value) {
-                    var namearr = value.name.split('-');
-                    SelectFilter.init(value.id, namearr[namearr.length - 1], true);
+                    var post_titlearr = value.post_title.split('-');
+                    SelectFilter.init(value.id, post_titlearr[post_titlearr.length - 1], true);
                 });
             }
         };
@@ -245,8 +245,8 @@
                     input = field.find('input, select, textarea'),
                     dependency_list = input.data('dependency_list') || [],
                     dependencies = [];
-                $.each(dependency_list, function(i, field_name) {
-                    dependencies.push('#' + row.find('.form-row .field-' + field_name).find('input, select, textarea').attr('id'));
+                $.each(dependency_list, function(i, field_post_title) {
+                    dependencies.push('#' + row.find('.form-row .field-' + field_post_title).find('input, select, textarea').attr('id'));
                 });
                 if (dependencies.length) {
                     input.prepopulate(dependencies, input.attr('maxlength'));
@@ -279,10 +279,10 @@
                 inlineOptions = data.inlineFormset;
             switch(data.inlineType) {
             case "stacked":
-                $(inlineOptions.name + "-group .inline-related").stackedFormset(inlineOptions.options);
+                $(inlineOptions.post_title + "-group .inline-related").stackedFormset(inlineOptions.options);
                 break;
             case "tabular":
-                $(inlineOptions.name + "-group .tabular.inline-related tbody tr").tabularFormset(inlineOptions.options);
+                $(inlineOptions.post_title + "-group .tabular.inline-related tbody tr").tabularFormset(inlineOptions.options);
                 break;
             }
         });

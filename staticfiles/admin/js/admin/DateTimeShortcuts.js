@@ -10,11 +10,11 @@
         clockInputs: [],
         dismissClockFunc: [],
         dismissCalendarFunc: [],
-        calendarDivName1: 'calendarbox', // name of calendar <div> that gets toggled
-        calendarDivName2: 'calendarin',  // name of <div> that contains calendar
-        calendarLinkName: 'calendarlink',// name of the link that is used to toggle
-        clockDivName: 'clockbox',        // name of clock <div> that gets toggled
-        clockLinkName: 'clocklink',      // name of the link that is used to toggle
+        calendarDivName1: 'calendarbox', // post_title of calendar <div> that gets toggled
+        calendarDivName2: 'calendarin',  // post_title of <div> that contains calendar
+        calendarLinkName: 'calendarlink',// post_title of the link that is used to toggle
+        clockDivName: 'clockbox',        // post_title of clock <div> that gets toggled
+        clockLinkName: 'clocklink',      // post_title of the link that is used to toggle
         shortCutsClass: 'datetimeshortcuts', // class of the clock and cal shortcuts
         timezoneWarningClass: 'timezonewarning', // class of the warning for timezone mismatch
         timezoneOffset: 0,

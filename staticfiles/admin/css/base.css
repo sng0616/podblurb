@@ -629,7 +629,7 @@ div.system-message p.system-message-title {
     background: #ffefef url(../img/icon-no.svg) 5px 5px no-repeat;
 }
 
-.description {
+.post_content {
     font-size: 12px;
     padding: 5px 0 0 12px;
 }
