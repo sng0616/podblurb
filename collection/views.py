@@ -63,7 +63,8 @@ def show_edit(request, slug):
         form = form_class(data = request.POST, instance = select_show)
         
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.save()
             form.save_m2m()
             return redirect('show', slug=select_show.slug)
         
@@ -85,7 +86,7 @@ def create_post(request):
             post.user = request.user
             post.slug = slugify(post.post_title)
             post.save()
-#            post.save_m2m()
+            post.save_m2m()
             
             return redirect('show',slug=post.slug)
     else:
@@ -103,7 +104,7 @@ def create_new_post(request):
             post.user = request.user
             post.slug = slugify(post.post_title)
             post.save()
-#            post.save_m2m()
+            post.save_m2m()
             
             return redirect('show',slug=post.slug)
     else:
