@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'podblurb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': '/var/host/media/removable/UNTITLED/podblurb/db.sqlite3'
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'NAME': '/var/host/media/removable/UNTITLED/podblurb/db.sqlite3'
     }
 }
 #print DATABASES['default']['NAME']
