@@ -16,15 +16,12 @@ print results['total_results'], total_pages
 
 all_shows = []
 
-#with open('audiosearch_json_file.txt', 'wb') as audio:
 for page in range(400,(total_pages+1)):
     print page
-#        audio.write(str(page)+'\n')
     page_results = c.search({ 'q': '*', 'page': page}, 'shows')
     for i in page_results['results']:
         if i['title'] not in all_shows:
             all_shows.append(i['title'])
-#                audio.write(i['title']+'\n')
             print i['title']
         else:
             pass
@@ -32,6 +29,5 @@ for page in range(400,(total_pages+1)):
 
 
 #all_shows = sorted(all_shows)
-##
 #print all_shows[0:15]
 print len(all_shows)
