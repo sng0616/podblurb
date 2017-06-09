@@ -6,6 +6,7 @@ from taggit.managers import TaggableManager
 
 # Create your models here.
 class podcast_show(models.Model):
+#    show_name_choices = ()
     show_name = models.CharField(max_length=255)
     show_description = models.TextField()
     show_website = models.CharField(max_length=100)

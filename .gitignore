@@ -4,3 +4,7 @@ include/
 lib/
 pip-selfcheck.json
 collection/passwords.py
+collection/passwords.pyc
+
+
+
