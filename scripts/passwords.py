@@ -1,3 +1,0 @@
-audiosearch_oauth_id = '4a6cfc00ffb7a3d38d56c2e8323cadd455e989a32fa78009e3c76c7091f497e8'
-audiosearch_oauth_secret = 'aaa9d65dd41f841b42d0f3f4dd8ba1d3869fdb5025281df11bd8add26f6a2824'
-prod_key = ''
