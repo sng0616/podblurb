@@ -8,7 +8,7 @@ from taggit.managers import TaggableManager
 # Get show_name_choices
 import passwords as p
 import math as m
-from audiosearch import Client
+#from audiosearch import Client
 
 
 # Create your models here.
